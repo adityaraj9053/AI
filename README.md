@@ -40,7 +40,7 @@ This algorithm has a knowledge of certain independent parameters which might aff
  <p>Grouping the inputs into similar groups.</p>
 
  (i)
- ![alt text](<Screenshot from 2025-02-15 22-12-23 copy.png>) 
+ ![Image](https://github.com/user-attachments/assets/e44efa2a-0daf-4b1e-80b4-c39767964c09)
  Ex- segmenting cusgtomer based on age, gender, etc.
 
 (ii)![alt text](<Screenshot from 2025-02-15 22-18-22.png>)
