@@ -34,3 +34,19 @@ This algorithm has a knowledge of certain independent parameters which might aff
 
 (v) ![alt text](<Screenshot from 2025-01-25 22-09-40.png>)
 <p>This is like decision tree algo along with some extra layers. This makes multiple decision trees and takes the best start of them to predict the output. </p>
+
+### Types of unsupervised: 
+## Clustering:
+ <p>Grouping the inputs into similar groups.</p>
+
+ (i)
+ ![alt text](<Screenshot from 2025-02-15 22-12-23 copy.png>) 
+ Ex- segmenting cusgtomer based on age, gender, etc.
+
+(ii)![alt text](<Screenshot from 2025-02-15 22-18-22.png>)
+Given set of input, clusters them based on closeness between the data points. It builds an hierarchy on top of that.
+
+(iii) ![alt text](<Screenshots/Screenshot from 2025-02-15 22-25-11.png>) 
+given a set of input data, this would group the data bassed on defining a neighbourhood and then density of it to qualify as a cluster. These are 2 parameters. Ex - Given a set of customers, you can detect the customer purchase patterns. so, you can define an age limit. Ex - age limit = 40+/-5, age limit is 35 to 45.
+
+(iv) ![alt text](<Screenshot from 2025-02-15 22-34-40.png>)
