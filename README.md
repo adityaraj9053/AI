@@ -46,7 +46,7 @@ This algorithm has a knowledge of certain independent parameters which might aff
 (ii)![alt text](<Screenshot from 2025-02-15 22-18-22.png>)
 Given set of input, clusters them based on closeness between the data points. It builds an hierarchy on top of that.
 
-(iii) ![alt text](<Screenshots/Screenshot from 2025-02-15 22-25-11.png>) 
+(iii) ![Image](https://github.com/user-attachments/assets/df7d04de-67f6-4206-bf05-21fdd9259fa9)
 given a set of input data, this would group the data bassed on defining a neighbourhood and then density of it to qualify as a cluster. These are 2 parameters. Ex - Given a set of customers, you can detect the customer purchase patterns. so, you can define an age limit. Ex - age limit = 40+/-5, age limit is 35 to 45.
 
 (iv) ![alt text](<Screenshot from 2025-02-15 22-34-40.png>)
