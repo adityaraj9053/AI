@@ -50,3 +50,61 @@ Given set of input, clusters them based on closeness between the data points. It
 given a set of input data, this would group the data bassed on defining a neighbourhood and then density of it to qualify as a cluster. These are 2 parameters. Ex - Given a set of customers, you can detect the customer purchase patterns. so, you can define an age limit. Ex - age limit = 40+/-5, age limit is 35 to 45.
 
 (iv) ![alt text](<Screenshot from 2025-02-15 22-34-40.png>)
+
+### NLP (Natural Language Processing)
+The one of the measure features of human beings are that we can understand, interpret, process language and respond So, 
+to make our machine smart our machine should also able to understand various languages.\
+ <b> NLP <b> trying to bring this capability to computers.
+![alt text](<Screenshot from 2025-03-03 17-45-41.png>)
+
+## Subprocesses of NLP
+![alt text](<Screenshot from 2025-03-03 17-42-20.png>)
+
+# Input
+This refers to the data we provide to train a machine or model.
+
+# Morphological Processing
+Structure of a word is known as Morhology. A word has some syntax like prefix, root, suffix, thirs person, etc. these are known as morphenes. In this process, we try to train model, that how to form a meaningful word.
+
+# Syntactical Processing
+It focuses on how words are arranged to form grammatically correct sentences based on syntactic rules.
+
+# Semantic Processing
+Through this, we train model to how to form a meaningful sentence, where to place verb, adjective, etc.
+# Discourse processing and contextual processing
+Bring the context and try to get true meaning of the sentences. Ex - Put the apple which is currently in the basket onto the shelf, have 2 different meaning, only understandable using "discourse"
+
+# Knowledge base
+
+Till this step,this is known as "NLU - Natural language understanding"
+
+<p> From, Now onward, NLG i.e. Natural Language Generation start</p>
+
+![alt text](<Screenshot from 2025-03-03 17-43-21.png>)
+
+![alt text](<Screenshot from 2025-03-03 17-45-41.png>)
+
+For NLP, we have to use these combination of these:
+![alt text](<Screenshot from 2025-03-03 17-46-31.png>)
+
+![alt text](<Screenshot from 2025-03-03 17-48-44.png>)
+
+### Computer Vision
+This term refers to the ability of computers to see, Like we humans see, and understans  and process the unstructure stream of information.
+
+For this, there are 3 stages:
+# Acquisition 
+It means to capture data either in form of photos or videos. Every coloue contains an array of 8 bit integers. So, it helps computer to interpret data.
+In this, we do edge detection, segmentation, classification, feature detection. 
+# Rendering
+generally refers to the process of generating visual content, typically by converting data or models into a visual representation. While the exact meaning can vary depending on the context. In this   
+3D Mapping - refers to the generation of 3D images or animations from a model, \  
+object recognition - Object recognition is a computer vision task where AI identifies and classifies objects in an image or video. This is typically done using machine learning models, particularly convolutional neural networks (CNNs), which are trained to detect and label various objects. \  
+ motion tracking - Motion tracking refers to the process of detecting and following the movement of objects or people across frames in a video. \  
+ Auto captioning, Augmented reality, Autonomous Cars, 
+
+ ### Neural networks
+ It is like neuron in our brain. It is used for clustering and classify the data. It is also helpful. It is also helpful in extract features which can be fit to other machine learning algorithm under classification and clustering.
+
+ # Perceptron
+ It lies under fundamental level of neural network. Its a single algorithm performs binary classification. Basically predicts output is of 1 category or other.
