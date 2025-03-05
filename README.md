@@ -92,7 +92,7 @@ For NLP, we have to use these combination of these:
 
 ### Computer Vision
 This term refers to the ability of computers to see, Like we humans see, and understans  and process the unstructure stream of information.
-
+![alt text](<Screenshot from 2025-03-04 21-12-34.png>)
 For this, there are 3 stages:
 # Acquisition 
 It means to capture data either in form of photos or videos. Every coloue contains an array of 8 bit integers. So, it helps computer to interpret data.
@@ -109,4 +109,60 @@ object recognition - Object recognition is a computer vision task where AI ident
 
  # Perceptron
  It lies under fundamental level of neural network. Its a single algorithm performs binary classification. Basically predicts output is of 1 category or other.
+Ex - In this example we will decide, should we take tea or coffee?
+![alt text](<Screenshot from 2025-03-05 19-22-34.png>)
 
+<b> Input: <b>   
+Let there are 3 inputs
+
+- Weather - cold and rainy = 1 else 0
+- Situation - Lots of work = 1 else 0
+- Sleep deprivation - 1 else 0
+
+
+<b> Weights <b>
+- 0.3 or 30% to weather
+- 0.5 or 50% to work
+- 0.2 0r 20% to sleep.
+
+<b> Weighted sum <b>\
+ lets say that it is rainy monday after a rather relaxed weekend\
+ -> 1*(0.3) + 1*(0.5) + 0*(0.2) = 0.8
+
+<b> Bias <b>\
+It is used to force an outcome, influence the acivation function, bringing more flexibility. It can be +ve or -ve.  Here, let  0.4
+
+<b> Activation function <b>\
+1, x >=1 and 0, x < 1
+
+<b> Output <b>\
+0.8 + 0.4 = 1.2 i.e. 1. So, Drink coffee.
+
+
+# Single layered Neural networks
+![alt text](<Screenshot from 2025-03-05 20-01-00.png>)
+
+
+ In the above diagram, there are 1 hidden layer with 3 neurons. Each neuron contains All the process from weights to Activation function of perceptron. More number of neurons is helphul because using it we can improve its ability to learn and generalize. Each hidden neuron learns different patterns or features from the input data. It helps our network to capture more complex relationships.
+
+Let we want to train model to identify letter and number. following aare the ways to train model.\
+![alt text](<Screenshot from 2025-03-05 21-38-21.png>)   
+
+![alt text](<Screenshot from 2025-03-05 21-38-48.png>)
+
+![alt text](<Screenshot from 2025-03-05 21-39-03.png>)
+
+# Deep Neural Network or Multi Neural Network
+A Deep Neural Network (DNN) is a type of artificial neural network that has multiple hidden layers between the input and output layers.
+![alt text](<Screenshot from 2025-03-05 20-07-56.png>)
+
+# Feed forward Neural Network
+![alt text](<Screenshot from 2025-03-05 22-04-39.png>)
+Here, there is multiple hidden layer andno hidden layer is looping. When input enters, it goes directly from left to right, instead of looping between 1 layer to another.
+
+![alt text](<Screenshot from 2025-03-05 22-06-15.png>)
+Here, we have 4X4 pixel i.e. 16 pixcel. so, there is 16 input and since, input is number so, here are 10 outputs. Given, number is more similar like a "1". so, 99%, but it is also similar like "7" so, it is 75%.
+
+![alt text](<Screenshot from 2025-03-05 22-14-30.png>)
+
+![alt text](<Screenshot from 2025-03-05 22-15-45.png>)
