@@ -162,7 +162,94 @@ Here, there is multiple hidden layer andno hidden layer is looping. When input e
 
 ![alt text](<Screenshot from 2025-03-05 22-06-15.png>)
 Here, we have 4X4 pixel i.e. 16 pixcel. so, there is 16 input and since, input is number so, here are 10 outputs. Given, number is more similar like a "1". so, 99%, but it is also similar like "7" so, it is 75%.
-
+![alt text](<Screenshot from 2025-03-06 15-01-23.png>)
+Hidden layer also have activation function , which reduce the complexity and output also have.
 ![alt text](<Screenshot from 2025-03-05 22-14-30.png>)
 
 ![alt text](<Screenshot from 2025-03-05 22-15-45.png>)
+
+## How input looks like (in the context of computer vision and machine learning):
+![alt text](<Screenshot from 2025-03-06 15-07-38.png>)
+
+Our screen is made up of pixels arranged in a matrix. When we want to represent a number or image, we superimpose that number or image on the pixel grid. The grayscale value is then assigned to each pixel, with scores ranging from 0 to 255 (0 represents complete black, and 255 represents complete white). Using this approach, a matrix is generated that represents the image or number.
+
+# Training Phase
+We start training and we get output as 7. Its wrong.
+![alt text](<Screenshot from 2025-03-06 15-26-00.png>)\
+We calculate error.
+![alt text](<Screenshot from 2025-03-06 15-35-16.png>)\
+Now, trying to adjust weights
+
+![alt text](<Screenshot from 2025-03-06 15-36-00.png>)
+![alt text](<Screenshot from 2025-03-06 16-17-42.png>)
+![alt text](<Screenshot from 2025-03-06 15-55-02.png>)
+![alt text](<Screenshot from 2025-03-06 15-56-05.png>)
+![alt text](<Screenshot from 2025-03-06 15-56-38.png>)
+![alt text](<Screenshot from 2025-03-06 16-08-39.png>)
+
+## Back propagation
+In this, we give input to system and fix the output. After the moving of data from input to output, if output don't match with input then, system backpropagate and try to change values of weight, so that error become 0.
+
+![alt text](<Pasted image.png>)
+
+![alt text](<Pasted image (2).png>)\
+Here, let we get an error of -5. Next time, error reduces to -4 then, -3. Finally, 0.
+
+![alt text](<Pasted image (2).png>)
+![alt text](<Pasted image (3).png>)
+![alt text](<Pasted image (4).png>)
+
+In all the above example, we have taken step size = 1, but step size plays a very important role, in determining answer.
+![alt text](<Pasted image (5).png>)
+Here, we can see that, on changing step size to 5, we are unable to get 0. And on making it 2, we are able to reduce iterations.
+
+## Applications of feed forward neural networks (FFNN)
+Neural networks are universal function approximators. As, it can generalize any complex functions.  
+![alt text](image.png)
+
+# Convolutional Neural networks
+It is primarily used for cluster and classify images. It helps in processing text from images. It helps NLP to understand handwritten documents. Also, understand sound based on rainbow type show. Its most important impact is on Computer Vision.
+
+![alt text](<image copy.png>)
+
+# How CNN can learn to detect various patterns like textures and shape?
+### Convolutional + ReLU
+We take an 'input image,' which is a grayscale image with pixel values ranging from 0 to 255, and a 'convolution filter,' which helps us identify patterns. For example, in this case, the filter is a 'T,' and it helps determine whether the image contains the letter 'T' or not.
+
+![alt text](<Screenshot from 2025-03-17 16-52-26.png>)
+We place the filter on the (1,1) position of the input image and calculate the output by multiplying the corresponding pixel values. For example, if the pixel value at position (1,1) in the input image is 120, and the corresponding pixel in the filter is also 120, we multiply these values (120 * 120), and so on for each pixel.
+
+![alt text](<Screenshot from 2025-03-17 16-52-39.png>)
+Once the multiplication for all the overlapping pixels is completed, we move the filter to the next position, such as (1,2), and repeat the process.
+
+![alt text](<Screenshot from 2025-03-17 16-52-58.png>)
+after completing one row, we move the filter to the next row (e.g., from position (1,1) to (2,1)) and repeat the multiplication process. 
+
+![alt text](<Screenshot from 2025-03-17 17-27-06.png>) (Dimension - height * weight * depth)  
+(The output from the convolution operation will have dimensions: height * width * depth. For grayscale images, the depth is 1 (because there’s only one channel), while for RGB images, the depth is 3 (one for red, one for green, and one for blue).)
+### Why output goes through ReLU layer?
+- The ReLU (Rectified Linear Unit) activation function is applied to the output of the convolutional layer.
+
+- it basically **replaces negative values with zero** while keeping positive values unchanged.
+- It introduces **non-linearity**, which helps the model learn complex patterns.
+
+#### **Why 9 Neurons?**
+- The input image has a 5×5 dimension.
+- A 3×3 filter is applied.
+- The output feature map size is calculated as:
+  \[
+  \frac{(5 - 3)}{1} + 1 = 3
+  \]
+  So, the output matrix is 3×3×1.
+- Each value in this **3×3 output matrix** corresponds to **one neuron**.
+- Since the output matrix has 3×3 = 9 elements, we say there are **9 neurons**.
+
+Thus, the **9 neurons** represent the 9 values in the 3×3 output feature map after applying the convolution operation. These neurons will then pass through the **ReLU activation** to introduce non-linearity.
+
+## Pooling
+![alt text](<Pasted image (6).png>)
+
+![alt text](<Pasted image (8).png>)
+Here, we can see greyscale is 5X5X1 and filter is 3X3X1. The output which we get is of dimension is 3X3X1.  We want that output is of same dimension so use *padding layer*
+![alt text](<Pasted image (9).png>)
+Here, we add 2 row and 2 column with values '0'. Now, greyscale is 7X7X1 and filter is 3X3X1. Here, we are getting output of dimension is 5X5X1.
