@@ -217,10 +217,10 @@ It is primarily used for cluster and classify images. It helps in processing tex
 We take an 'input image,' which is a grayscale image with pixel values ranging from 0 to 255, and a 'convolution filter,' which helps us identify patterns. For example, in this case, the filter is a 'T,' and it helps determine whether the image contains the letter 'T' or not.
 
 ![alt text](<Screenshot from 2025-03-17 16-52-26.png>)
-We place the filter on the (1,1) position of the input image and calculate the output by multiplying the corresponding pixel values. For example, if the pixel value at position (1,1) in the input image is 120, and the corresponding pixel in the filter is also 120, we multiply these values (120 * 120), and so on for each pixel.
+We place the filter on the (1,1) position of the input image and calculate the output by taking the <b>dot product<b> of pixcel and input image. 
 
 ![alt text](<Screenshot from 2025-03-17 16-52-39.png>)
-Once the multiplication for all the overlapping pixels is completed, we move the filter to the next position, such as (1,2), and repeat the process.
+Once the dot product completed, we move the filter to the next position, such as (1,2), and repeat the process.
 
 ![alt text](<Screenshot from 2025-03-17 16-52-58.png>)
 after completing one row, we move the filter to the next row (e.g., from position (1,1) to (2,1)) and repeat the multiplication process. 
@@ -249,7 +249,124 @@ Thus, the **9 neurons** represent the 9 values in the 3×3 output feature map af
 ## Pooling
 ![alt text](<Pasted image (6).png>)
 
+In the below figure, you can clearly see, we have a filter of 3x3. On applying this filter to 1st pixcel, highest value on 1st pixcel is '6600', so, output stored as '6600'.  
+(NOTE: If we move, 1 pixcel at a time then, it is known as "Stride of 1", if move 2 pixcel it is known as "stride of 2". It basically calculate how fast we moving filter or step size of filter.)
 ![alt text](<Pasted image (8).png>)
-Here, we can see greyscale is 5X5X1 and filter is 3X3X1. The output which we get is of dimension is 3X3X1.  We want that output is of same dimension so use *padding layer*
+Let's say, we are Here, we can see greyscale is 5X5X1 and filter is 3X3X1. The output which we get is of dimension is 3X3X1.  We want that output is of same dimension so use *padding layer*
 ![alt text](<Pasted image (9).png>)
 Here, we add 2 row and 2 column with values '0'. Now, greyscale is 7X7X1 and filter is 3X3X1. Here, we are getting output of dimension is 5X5X1.
+
+## Example of CNN - Handwritten digit recognition
+![alt text](<Screenshot from 2025-03-28 10-24-11.png>)
+
+![alt text](<image copy 2.png>)
+
+![alt text](<image copy 3.png>)
+
+we take a handwritten digit let 3. Its pixcel dimension is 32x32. Lets filter dimension is 5x5.  
+We know:  
+Output size = ((Input Size − Filter Size)/ Stride) + 1
+
+Here, output size of feature map C1 = 32-5+1 = 28.(stride = 1)  
+S0, First Convolution Layer is of dimension 28x28.
+In C1, there are 6 feature maps, this is because we are using <b>LeNet-5 architecture<b> diagram. Yann LeCun had choosen 6 feature maps for detecting different features of filters like edges, textures, corners, patterns, etc. if map size is more than 6 then, computational complexity will be increase too much.  
+Now, on doing its subsampling (pooling):  
+s1 = ((28-2)/2) + 1 = 14  
+so, dimension = 14x14.
+
+On processing S1 with 5x5 filter, we get output size of C1= 10 (stride = 1).  
+The Second Convolution Layer (C2) has 16 feature maps because as it is a deeper layer and deeper layer detects complex pattern.  
+On applying subsampling, S2 - size = 5x5.
+
+--TILL ABOVE IS "FEATURE EXTRACTION"--  
+CLASSIFICATION STARTS:
+These Extracted features are now connected to the 'fully connected neurons'. These neurons psend it to the last 10 nuerons which predict the digit. 
+
+# Recurrent Neural Network (RNN)
+A Recurrent Neural Network (RNN) is a type of artificial neural network designed to recognize patterns in sequences of data. Unlike traditional neural networks that assume all inputs are independent of each other, RNNs are specifically designed to handle data where context or sequential information matters—such as time series data, text, or speech.
+
+<b> Example</b>
+![alt text](<Screenshot from 2025-03-28 18-34-07.png>)
+You are awesome. It firstly process 'you'. Then, in next cycle, it will process 'you' and 'are' together. and in third cycle, it will process all the sentence and then predict next values.
+<b>This is the drawback of FFNN</b>, in that all the input are independent of each other.
+![alt text](<Screenshot from 2025-03-28 18-36-54.png>)
+We can achieve these stages, in RNN not in FFNN.
+
+## Key Features of RNNs:
+**Sequential Data Processing**: RNNs work by maintaining a memory (or hidden state) of previous inputs in the sequence. This allows them to process data step-by-step and retain information from previous steps, which is essential for understanding the context or dependencies in sequential data.
+
+**Recurrent Connections:** The "recurrent" part of RNNs refers to the fact that information is passed not just from input to output but also from one time step to the next. At each time step, the RNN takes in an input and updates its hidden state, which is then used for the next time step.
+
+**Hidden State:** RNNs have a hidden state that acts like a memory unit, storing information about previous inputs. The hidden state is updated after processing each input, allowing the network to retain context as it moves through the sequence.
+
+**Weight Sharing:** Unlike traditional feed-forward networks where each layer has its own set of weights, RNNs share the same set of weights at each time step. This weight sharing allows RNNs to scale better when processing long sequences.
+
+## RNN Architecture
+![alt text](<Screenshot from 2025-03-29 09-53-24.png>)
+
+![alt text](<Screenshot from 2025-03-29 09-51-14.png>)
+
+Here, architecture is taking english input from users and translating them to spanish during training period. When training period completed and trying to translate then system may not be give correct answer.
+
+# Generative Adversarial Network (GAN)
+It is a type of machine learning model designed to generate new realistic data by learning from an existing dataset. It has capability of understanding any set of data and can produce same. It can create beautiful pictures, artifacts, videos, etc.
+![alt text](<image copy 4.png>)
+
+It consists of two neural networks that compete against each other in a zero-sum game:
+
+    Generator (G) – This network creates fake data that mimics the real data.
+
+    Discriminator (D) – This network evaluates whether the data is real (from the dataset) or fake (generated by the Generator).
+
+How GANs Work
+![alt text](<Screenshot from 2025-03-29 10-08-38.png>)
+    The Generator takes random noise as input and generates fake data.
+
+    The Discriminator receives both real and fake data and learns to classify them correctly.
+
+    The Generator improves by trying to fool the Discriminator, while the Discriminator gets better at detecting fakes.
+
+    This competition continues until the Generator produces data that is nearly indistinguishable from real data.
+
+# Reinforcement Learning (RL)
+Reinforcement Learning (RL) is a type of machine learning where an agent learns to make decisions by interacting with an environment to maximize some cumulative reward. It is inspired by how humans and animals learn through trial and error.  
+Key Components of RL:
+
+  Agent – The entity that takes actions in the environment.
+
+  Environment – The world in which the agent operates.
+
+  State (S) – The current situation or condition of the agent in the environment.
+
+  Action (A) – The possible moves or choices the agent can make.
+
+  Reward (R) – A numerical feedback signal that tells the agent how good or bad an action was.
+
+  Policy (π) – A strategy that defines how the agent chooses actions based on the current state.
+
+## How RL works:
+Let we are playing mario games. Policy is telling us what to do and how to do,like escape from carnivore plant, eat apples, etc. On eating apple, we get 10 points, but we loose point on meeting thorns. On the basis of these rewards and policy, our AI will be trained. 
+![alt text](<Screenshot from 2025-03-29 10-27-47.png>)
+
+### What is happening?
+Based on its policy, the agent takes an action. In response, the environment provides a reward and transitions to a new state. The agent’s goal is to maximize the cumulative rewards over time
+![alt text](<Screenshot from 2025-03-29 10-29-42.png>)
+![alt text](<Screenshot from 2025-03-29 10-31-16.png>)
+![alt text](<Screenshot from 2025-03-29 10-31-28.png>)
+![alt text](<Screenshot from 2025-03-29 10-31-54.png>)
+
+# Transfer learning
+![alt text](image-1.png)
+Here, we can see that if someon start trainig maacine from zero, then he/ she got out of the memory, because training required lots of machine and he/he never able to modify the prexisting machine.  
+Here <b> Transfer learning </b> helps. It is a technique where a pre-trained model is used as a starting point for a new task, rather than training a model from scratch. This helps save time, computational resources, and often improves performance, especially when the new task has limited data.
+
+# High level Approach for applying ML in real life problem:
+![alt text](image-2.png)
+Example: Let following is our problem statement, we are able to create a specific question.
+
+![alt text](<Screenshot from 2025-03-30 19-09-02.png>)
+Second step, "Acquire & understand data"
+
+![alt text](<Screenshot from 2025-03-30 19-12-55.png>)
+
+Now, we will use ML Algorithm
